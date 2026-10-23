@@ -1,0 +1,32 @@
+name: Verify Windows installer
+on:
+  workflow_dispatch:
+    inputs:
+      asset_id:
+        required: true
+        type: string
+      sha256:
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  installer:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download and verify this repository release asset
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ASSET_ID: ${{ inputs.asset_id }}
+          EXPECTED_SHA: ${{ inputs.sha256 }}
+        run: |
+          if ($env:ASSET_ID -notmatch '^\d+$' -or $env:EXPECTED_SHA -notmatch '^[a-f0-9]{64}$') { throw 'Invalid asset inputs' }
+          $url = "https://api.github.com/repos/${{ github.repository }}/releases/assets/$env:ASSET_ID"
+          curl.exe --fail --location --header "Authorization: Bearer $env:GH_TOKEN" --header "Accept: application/octet-stream" --output "$env:RUNNER_TEMP/Amos-Setup.exe" $url
+          if ($LASTEXITCODE -ne 0) { throw 'Asset download failed' }
+          if ((Get-FileHash -LiteralPath "$env:RUNNER_TEMP/Amos-Setup.exe" -Algorithm SHA256).Hash.ToLowerInvariant() -ne $env:EXPECTED_SHA) { throw 'Installer SHA-256 mismatch' }
+      - name: Test installer and default shortcuts on clean Windows
+        shell: pwsh
+        run: ./tools/Test-ReleaseInstaller.ps1 -SetupPath "$env:RUNNER_TEMP/Amos-Setup.exe" -Target "$env:RUNNER_TEMP/Amos-install-test"

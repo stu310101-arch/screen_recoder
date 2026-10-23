@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PlatformTarget>x64</PlatformTarget>
+    <Platform>x64</Platform>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>aureo.ico</ApplicationIcon>
+    <AssemblyName>AureoRecorder</AssemblyName>
+    <Version>1.3.1</Version>
+    <Product>Amos錄影與截圖</Product>
+    <Title>Amos錄影與截圖</Title>
+    <PublishSingleFile>false</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <NoWarn>$(NoWarn);WFAC010</NoWarn>
+  </PropertyGroup>
+  <ItemGroup><Resource Include="aureo.ico" /></ItemGroup>
+  <ItemGroup><PackageReference Include="ScreenRecorderLib" Version="7.0.1" /><PackageReference Include="NAudio.Wasapi" Version="2.2.1" /></ItemGroup>
+</Project>

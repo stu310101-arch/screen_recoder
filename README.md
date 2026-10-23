@@ -1,80 +1,29 @@
-AUREO — Windows 螢幕錄影與截圖工具
-版本 1.0.1 / Windows 10 2004 以上與 Windows 11 / x64
+# Amos錄影與截圖
 
-啟動
-從 GitHub Releases 下載 AUREO-Setup.exe，下載完成後雙擊一次。
-啟動檔會自動準備程式、建立桌面捷徑並開啟操作介面，不必手動解壓縮或找 EXE。
-更新版本前請先結束舊版 AUREO，避免單一執行個體機制帶回仍在執行的舊版本。
-之後雙擊桌面的「AUREO 螢幕錄影」捷徑即可開啟；重複啟動會帶回原本視窗。
-瀏覽器下載檔案本身不會自動執行程式，第一次仍須由你雙擊啟動檔。
-如果使用 ZIP 免安裝版，請先完整解壓縮，再雙擊最外層的 AureoRecorder.exe。
-程式已包含 .NET 執行環境，不需另外安裝 .NET。
-請保留 App 中的所有檔案，不能只搬走 EXE。
-若在其他電腦出現缺少 VCRUNTIME140 或 MSVCP140，請安裝 Microsoft Visual C++ x64 執行環境：
-https://aka.ms/vs/17/release/vc_redist.x64.exe
-Windows N / KN 版本須具備 Media Feature Pack。
+<img src="branding/amos-recorder.png" width="128" alt="Amos錄影與截圖圖示">
 
-三種擷取模式（錄影與截圖共用）
-• 螢幕：選擇一個螢幕，錄下該螢幕當下顯示的內容。切換應用程式、分頁或桌面都會錄入。
-• 範圍：先選螢幕，再按「框選範圍」拖曳選取；Esc 取消。固定錄下這個位置，切換程式或分頁會一起錄下。範圍不會跟隨視窗移動。每次換螢幕須重新框選。
-• 視窗：選擇程式或遊戲視窗，只錄這個視窗。其他視窗遮住來源時仍可擷取。請保持來源開啟，不要最小化。Chrome 會錄到該視窗目前顯示的分頁，沒有獨立鎖定背景分頁。
+**v1.3.1 · Windows 10 2004 以上／Windows 11 · x64**
 
-開始與控制
+[下載 Windows 安裝精靈](https://github.com/stu310101-arch/screen_recoder/releases/latest/download/AmosRecorder-Setup.exe) · [版本說明](../../releases/latest) · [完整使用說明](使用說明.md)
 
-選擇螢幕、範圍或指定視窗，設定影片與圖片資料夾。
-按「開始使用」：主介面收起，顯示小型直式側邊工具列。此時尚未錄影。
-按紅色圓點才會開始錄影；預設倒數 3 秒。錄影中圓點變成停止鍵。
-按相機圖示截圖，直接儲存為 PNG。錄影時也能截圖，不會中斷錄影。
-暫停時也能截圖，擷取來源目前畫面；錄影維持暫停狀態。
-停止錄影並儲存後仍留在工具列，可繼續截圖或再錄一段。
-工具列頂端把手可拖曳，暫停鍵可暫停／繼續，麥克風鍵開啟人聲設定，最下方圖示開啟主介面。
-Ctrl + Shift + F9：開始、暫停或繼續。
-Ctrl + Shift + F10：停止並儲存，也可以取消開始前倒數。
-快捷鍵需要同時按住 Ctrl 與 Shift；被其他程式占用時可使用浮動控制列。
-系統匣圖示也提供開啟介面、暫停、停止及結束。
-浮動列與主介面使用 Windows 擷取排除機制。錄製時無法把控制列蓋在獨佔全螢幕遊戲之上，這時可用快捷鍵；無邊框視窗通常更方便。
-儲存
-影片預設：Windows「影片」資料夾內的 AUREO 資料夾。
-截圖預設：Windows「圖片」資料夾內的 AUREO 資料夾。
-未指定位置時會使用上述預設位置，第一次儲存會自動建立資料夾。
-主畫面分別有「影片」與「圖片」兩列，每列的「選擇資料夾」可更換位置，程式會各自記住。
-旁邊的 ↗ 分別開啟影片／圖片資料夾。既有使用者已選擇的影片位置會保留。
-影片使用 H.264 / MP4；聲音使用 AAC。暫停時間不會保留在影片裡。
-截圖使用 PNG；單獨截圖與暫停時的截圖使用來源尺寸，錄影中的截圖使用錄影輸出尺寸。
-停止後需等待影片完成儲存。關閉主程式會先停止並儲存。
-請避免錄製時強制結束程式或關機，尚未完成的 MP4 可能無法播放。
+支援螢幕、範圍、指定視窗錄影與截圖，浮動控制列、暫停繼續、系統聲音與麥克風。採用 Amos 統一黑金圖示。
 
-畫質與影格率
-影格率：30、60、120 FPS。
-解析度：原始尺寸、720p、1080p、1440p、2160p（3840 × 2160）。
-固定解析度使用 16:9，不同比例補黑邊；較小來源會放大，不能增加來源本身的細節。
-畫質：精省／高畫質／極致，位元率會隨解析度與影格率調整。
-120 FPS 為目標值，實際影格率取決於顯示卡、編碼器與遊戲負載。掉幀時可降低解析度或影格率。
+1. 下載並執行 `AmosRecorder-Setup.exe`。
+2. 依安裝精靈完成安裝，保留預設勾選的「建立桌面捷徑」。
+3. 從桌面或開始功能表開啟「Amos錄影與截圖」。
 
-遊戲與聲音
-遊戲建議選「螢幕」、60 FPS、Desktop Duplication。黑畫面時可改用無邊框視窗，或切換為 Windows Graphics Capture。
-影格率是設定目標，實際流暢度取決於遊戲負載、解析度與顯示卡。
-系統聲音使用 Windows 預設播放裝置。麥克風可使用預設裝置或在側欄選定輸入裝置。錄指定視窗時，「系統聲音」仍會錄下所有應用程式的聲音。
-麥克風預設關閉。點左側麥克風圖示，勾選「錄製我的聲音」，可調整 0–100% 錄製音量並查看即時音量。
-錄影中可開關人聲與調整音量，暫停時的變更會在繼續後生效；輸入裝置須在開始錄影前選定。
-音量滑桿只影響錄影的人聲，不更改 Windows 的裝置音量。0% 為靜音。
-如未偵測到麥克風，請連接裝置並允許 Windows 桌面應用程式存取麥克風。
-已開始錄影後才插入新麥克風時，請停止後重新開始錄影。
-錄影中請避免拔除音訊裝置、改變解析度或拔除螢幕。
-受保護影片、部分反作弊遊戲或受限制的視窗可能無法擷取。此版本沒有注入遊戲程式的 Game Capture 功能。
+程式包含 .NET 執行環境。安裝於目前使用者的 `%LOCALAPPDATA%\Programs\AureoRecorder`。解除安裝保留錄影、圖片與設定。既有使用者的儲存位置保留；新使用者預設使用影片／圖片資料夾內的「Amos錄影與截圖」資料夾。
 
-資料
-影片與圖片儲存在各自選定的本機位置，程式沒有上傳功能。
-設定儲存在 %LOCALAPPDATA%\AureoRecorder\settings.json。
+`Source` 包含 WPF 原始碼；`installer` 包含 Inno Setup 安裝腳本。依 [使用說明](使用說明.md) 操作與檢視限制。
 
-原始碼
-Source 資料夾包含 C# / WPF 原始碼。
-安裝 .NET 8 SDK 後，在 Source 內執行 build.ps1 即可重新發布。
+## Amos 工具系列
 
-第三方
-擷取與編碼：ScreenRecorderLib 7.0.1（MIT）
-https://github.com/sskodje/ScreenRecorderLib
-麥克風裝置與音量監測：NAudio.Wasapi / NAudio.Core 2.2.1（MIT）
-https://github.com/naudio/NAudio
-MIT 授權全文請見 THIRD-PARTY-LICENSES.txt。
-Windows 擷取與 Media Foundation 由作業系統提供。
+![Amos 黑金圖示系列](branding/Amos-family-preview.png)
+
+| 工具 | 功能 | Windows 安裝精靈 |
+| --- | --- | --- |
+| Amos錄影與截圖 | 螢幕錄影、範圍與視窗截圖 | [下載](https://github.com/stu310101-arch/screen_recoder/releases/latest/download/AmosRecorder-Setup.exe) |
+| Amos影音下載 | 影音下載、合併與轉檔 | [下載](https://github.com/stu310101-arch/AUREATE/releases/latest/download/AmosDownloader-Setup.exe) |
+| Amos電腦手機連結器 | 電腦與手機互傳檔案、文字 | [下載](https://github.com/stu310101-arch/aureo-link/releases/latest/download/AmosLink-Setup.exe) |
+
+三款採用統一黑金圖示。下載後執行安裝精靈，預設勾選建立桌面捷徑，也會加入開始功能表與 Windows 解除安裝清單。

@@ -1,0 +1,6 @@
+Source/bin/
+Source/obj/
+App/
+release/
+*.exe
+*.log
