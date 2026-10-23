@@ -17,8 +17,11 @@ try {
     }
     $shell = New-Object -ComObject WScript.Shell
     foreach ($path in @($desktopLink,$menuLink)) {
-        $shortcut = $shell.CreateShortcut($path)
-        if ($shortcut.TargetPath -ne $exe) { throw 'Wrong shortcut target' }
+        $inspectionLink = Join-Path $env:RUNNER_TEMP 'Amos-shortcut-inspection.lnk'
+        Copy-Item -LiteralPath $path -Destination $inspectionLink -Force
+        try { $shortcut = $shell.CreateShortcut($inspectionLink) }
+        finally { Remove-Item -LiteralPath $inspectionLink -Force }
+        if ($shortcut.TargetPath -ne $exe) { throw "Wrong shortcut target: actual='$($shortcut.TargetPath)'; expected='$exe'" }
         if ($shortcut.IconLocation -notlike ($exe + '*')) { throw 'Wrong shortcut icon' }
     }
     $registration = Get-ItemProperty -LiteralPath $key
