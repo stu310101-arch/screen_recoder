@@ -2,7 +2,7 @@
 
 <img src="branding/amos-recorder.png" width="128" alt="Amos錄影與截圖圖示">
 
-**v1.3.1 · Windows 10 2004 以上／Windows 11 · x64**
+**v1.3.2 · Windows 10 2004 以上／Windows 11 · x64**
 
 [下載 Windows 安裝精靈](https://github.com/stu310101-arch/screen_recoder/releases/latest/download/AmosRecorder-Setup.exe) · [版本說明](../../releases/latest) · [完整使用說明](使用說明.md)
 
@@ -27,3 +27,5 @@
 | Amos電腦手機連結器 | 電腦與手機互傳檔案、文字 | [下載](https://github.com/stu310101-arch/aureo-link/releases/latest/download/AmosLink-Setup.exe) |
 
 三款採用統一黑金圖示。下載後執行安裝精靈，預設勾選建立桌面捷徑，也會加入開始功能表與 Windows 解除安裝清單。
+
+圖示修正：桌面與開始功能表捷徑直接使用已安裝、帶版本號的獨立黑金 ICO，避免沿用舊版 EXE 圖示快取。請執行最新版安裝精靈並保留「建立桌面捷徑」勾選。

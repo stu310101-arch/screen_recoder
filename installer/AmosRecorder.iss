@@ -1,5 +1,5 @@
 #define AppName "Amos錄影與截圖"
-#define AppVersion "1.3.1"
+#define AppVersion "1.3.2"
 
 [Setup]
 AppId={{B38929C2-823A-4AB2-9B5A-191483A8AD65}
@@ -18,7 +18,7 @@ MinVersion=10.0.19041
 OutputDir=..\release
 OutputBaseFilename=AmosRecorder-Setup
 SetupIconFile=..\Source\aureo.ico
-UninstallDisplayIcon={app}\AureoRecorder.exe
+UninstallDisplayIcon={app}\icons\AmosRecorder-v{#AppVersion}.ico
 WizardStyle=modern
 DisableWelcomePage=no
 DisableProgramGroupPage=yes
@@ -37,12 +37,13 @@ Name: "chinesetraditional"; MessagesFile: "ChineseTraditional.isl"
 Name: "desktopicon"; Description: "建立桌面捷徑"; GroupDescription: "捷徑選項："
 
 [Files]
+Source: "..\Source\aureo.ico"; DestDir: "{app}\icons"; DestName: "AmosRecorder-v{#AppVersion}.ico"; Flags: ignoreversion
 Source: "..\App\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
-Name: "{autoprograms}\{#AppName}\{#AppName}"; Filename: "{app}\AureoRecorder.exe"; WorkingDir: "{app}"; IconFilename: "{app}\AureoRecorder.exe"
+Name: "{autoprograms}\{#AppName}\{#AppName}"; Filename: "{app}\AureoRecorder.exe"; WorkingDir: "{app}"; IconFilename: "{app}\icons\AmosRecorder-v{#AppVersion}.ico"; IconIndex: 0
 Name: "{autoprograms}\{#AppName}\使用說明"; Filename: "{app}\使用說明.txt"
-Name: "{autodesktop}\{#AppName}"; Filename: "{app}\AureoRecorder.exe"; WorkingDir: "{app}"; IconFilename: "{app}\AureoRecorder.exe"; Tasks: desktopicon
+Name: "{autodesktop}\{#AppName}"; Filename: "{app}\AureoRecorder.exe"; WorkingDir: "{app}"; IconFilename: "{app}\icons\AmosRecorder-v{#AppVersion}.ico"; IconIndex: 0; Tasks: desktopicon
 
 [InstallDelete]
 Type: files; Name: "{autodesktop}\AUREO 錄影與截圖.lnk"
